@@ -1,0 +1,17 @@
+﻿apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: coreappwithdocker
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: coreappwithdocker
+    spec:
+      containers:
+      - name: coreappwithdocker
+        imagePullPolicy: Never # <-- here we go!
+        image: coreappwithdocker
+        ports:
+        - containerPort: 80
